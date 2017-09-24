@@ -6,3 +6,11 @@
     margin-bottom: 15px;
   }
 }
+
+// Notification
+.notification{
+  & > * {
+    display: inline-block;
+    padding: 12px 14px;
+  }
+}

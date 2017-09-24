@@ -65,3 +65,69 @@
     }
   }
 }
+
+// Tables
+.table{
+
+  font-size: $tableFontSize;
+  border-collapse: collapse;
+
+  tbody{
+
+    tr{
+
+      &:hover {
+        background-color: $tableTrHover;
+      }
+    }
+  }
+
+  th{
+    padding: 30px 18px;
+    color: $grey;
+  }
+
+  td{
+    border-top: 1px solid $lightGrey;
+    padding: 18px;
+
+    &.td-title{
+      font-size: 16px;
+      color: $grey;
+    }
+  }
+}
+.table-sort{
+  color: $grey;
+  padding: 8px 10px;
+  margin: -8px -10px;
+  border-radius: 2px;
+  cursor: pointer;
+  &:hover{
+    background-color: $xsLightGrey;
+    color: $black;
+  }
+}
+
+
+// Notification
+.notification{
+  font-size: $notifFontSize;
+  color: $notifDefaultColor;
+  cursor: pointer;
+
+  .posi-notif{
+    background-color: $posiNotifColorBg;
+
+    &:hover{
+      background-color: $posiNotifHoverColorBg;
+    }
+  }
+  .nega-notif{
+    background-color: $negaNotifColorBg;
+
+    &:hover{
+      background-color: $negaNotifHoverColorBg;
+    }
+  }
+}
