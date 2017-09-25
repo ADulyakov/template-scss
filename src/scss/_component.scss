@@ -3,7 +3,7 @@
 
 %title{
   color: $titleColor;
-  font-size: 16px;
+  font-size: $titleFontSize;
   font-weight: $fontBold;
 
 }
@@ -15,7 +15,13 @@
 .page-title{
   @extend %title;
   text-transform: uppercase;
+
+  .small-title{
+    font-size: $smallTitleFontSize;
+  }
 }
+
+
 
 // Links
 
@@ -41,6 +47,10 @@
   border-radius: 2px;
   display: inline-block;
 
+  & + .btn {
+    margin-left: $defaultIndent;
+  }
+
   &.btn-default{
     background-color: $btnDefaultBg;
 
@@ -56,6 +66,7 @@
       background-color: $btnActionBgHover;
     }
   }
+
   &.btn-disabled{
     background-color: $btnDisabledBg;
     cursor: not-allowed;
@@ -66,15 +77,24 @@
   }
 }
 
-// Tables
-.table{
+// Table
 
+.table{
   font-size: $tableFontSize;
   border-collapse: collapse;
 
+  &.full-width{
+    width: 100%;
+  }
   tbody{
 
     tr{
+
+      &:last-child{
+        td{
+            border-bottom: 1px solid $lightGrey;
+        }
+      }
 
       &:hover {
         background-color: $tableTrHover;
@@ -109,6 +129,34 @@
   }
 }
 
+// Pagination
+%activePaginationLink{
+  background-color: $xsLightGrey;
+  color: $darkGrey;
+  border-radius: 2px;
+}
+
+
+.pagination{
+  li{
+    display: inline-block;
+
+    &.active{
+      a{
+        @extend %activePaginationLink;
+      }
+    }
+
+    a{
+      display: inline-block;
+      padding: $defaultIndent;
+
+      &:hover{
+       @extend %activePaginationLink;
+      }
+    }
+  }
+}
 
 // Notification
 .notification{
@@ -122,6 +170,17 @@
     &:hover{
       background-color: $posiNotifHoverColorBg;
     }
+
+    &::before{
+      content:'';
+      padding-left: 22px;
+      width: 15px;
+      height: 15px;
+      background-color: #fff;
+      border:  1px #fff solid;
+      border-radius: 50%;
+      display: inline-block;
+    }
   }
   .nega-notif{
     background-color: $negaNotifColorBg;
@@ -129,5 +188,138 @@
     &:hover{
       background-color: $negaNotifHoverColorBg;
     }
+  }
+}
+
+// container
+.container-fluid{
+  padding: $defaultIndent;
+}
+.container-sm{
+  max-width: 684px;
+  margin: 0 auto;
+}
+
+// header
+
+.header{
+  background-color: #fff;
+  border-bottom: 1px solid  $lightGrey;
+  right: 0;
+  left: 0;
+  height: 60px;
+}
+
+// Aside
+%activeLink{
+  background-color: #282828;
+  color: #fff;
+  border-left-color: $orange;
+}
+.aside{
+  background-color: $asideBg;
+  width: $asideWidth;
+  height: 100vh;
+  left: 0;
+  z-index: 100;
+  overflow-y: auto;
+
+  .menu-control{
+      padding: $defaultIndent;
+
+     .menu-btn{
+       cursor: pointer;
+       span{
+         display: block;
+         width: 18px;
+         height: 2px;
+         background-color: $darkGrey;
+
+         & + span{
+           margin-top: 5px;
+         }
+       }
+     }
+  }
+
+  .aside-menu{
+
+    ul{
+
+      li{
+
+        &.active{
+          a{
+            @extend %activeLink;
+          }
+        }
+
+        a{
+          color: $darkGrey;
+          display: block;
+          padding: 14px;
+          border-left: 4px solid transparent;
+          
+          &:hover{
+            @extend %activeLink;
+          }
+        }
+      }
+    }
+  }
+
+  .your-manager{
+    padding: 27px $defaultIndent;
+    border-top: $darkGrey;
+
+    .manager-info{
+      margin-top: $defaultIndent;
+
+      .manager-photo{
+        position: relative;
+        margin-right: 10px;
+
+        .status{
+          width: 11px;
+          height: 11px;
+          border-radius: 50%;
+          position: absolute;
+          top: 0;
+          right: 0;
+
+          &.online{
+            background-color: $green;
+          }
+          &.offline{
+            background-color: $red;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+// Content wrapper
+.content-wrapper{
+  padding: $defaultIndent;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+}
+.panel{
+  background-color: #fff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+
+  & + .panel{
+    margin-top: $defaultIndent;
+  }
+
+  .panel-header{
+    border-bottom: 1px solid  $lightGrey;
+    padding: $defaultIndent;
+  }
+
+  .panel-body{
+    padding: $defaultIndent;
   }
 }
