@@ -10,6 +10,12 @@
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 
+    <!-- ICONS-->
+    <link rel="stylesheet" href="css/myfont.css">
+
+    <!-- jQuery css -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
     <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -40,13 +46,13 @@
     </div>
     <div class="aside-menu">
         <ul>
-            <li class="active"><a href="">General</a></li>
-            <li><a href="">Details</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Banners</a></li>
-            <li><a href="">Personal data</a></li>
-            <li><a href="">Payuot</a></li>
-            <li><a href="">Postback</a></li>
+            <li class="active"><a href=""><span class="icon icon-general"></span>General</a></li>
+            <li><a href=""><span class="icon icon-details"></span>Details</a></li>
+            <li><a href=""><span class="icon icon-links"></span>Link</a></li>
+            <li><a href=""><span class="icon icon-banners"></span>Banners</a></li>
+            <li><a href=""><span class="icon icon-personaldata"></span>Personal data</a></li>
+            <li><a href=""><span class="icon icon-payout"></span>Payout</a></li>
+            <li><a href=""><span class="icon icon-postback"></span>Postback</a></li>
         </ul>
         <div class="your-manager">
             <h3 class="page-title small-title">Yore manager</h3>
@@ -59,13 +65,32 @@
             </div>
         </div>
     </div>
-
 </aside>
 <!-- ASIDE END -->
 <!-- MAIN START -->
-
 <main>
     <div class="content-wrapper">
+        <div class="panel">
+            <div class="panel-header">
+                <h3 class="page-title links">General statistics</h3>
+            </div>
+            <div class="panel-date text-center">
+                <form class="datepicker-form">
+                    <div class="date-input-wrap">
+                        <input type="text" id="from" name="from" class="date-control">
+                        <input type="text" id="to" name="to" class="date-control">
+                    </div>
+                    <button class="btn btn-action"><span class="icon icon-refresh"></span></button>
+                </form>
+            </div>
+            <div class="panel-body">
+                <div class="container container-sm">
+                    <div class="chart-wrap">
+                        <canvas id="myChart" width="400" height="400"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="panel links">
             <div class="panel-header">
                 <h3 class="page-title links">Links</h3>
@@ -127,8 +152,30 @@
 </main>
 <!-- MAIN  END -->
 
+<!-- MODAL ADD LINKS -->
+<div class="modal" id="add-links-modal">
+    <div class="modal-header">
+        <h3 class="page-title">Links</h3>
+        <div class="modal-body">
+            <select name="" id="">
+                <option value="">one</option>
+                <option value="">one</option>
+                <option value="">one</option>
+                <option value="">one</option>
+            </select>
+        </div>
+        <div class="modal-footer"></div>
+    </div>
+</div>
+
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+<script src="js/jquery.bpopup.min.js"></script>
+
+<!-- Init plugin -->
+<script src="js/init.js"></script>
 
 </body>
 </html>
