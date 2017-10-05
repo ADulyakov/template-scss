@@ -416,6 +416,46 @@
 
 // modal
 
-.modal{
+.modal {
   background-color: #fff;
+  width: 1075px;
+  display: none;
+
+  .modal-header {
+    @extend %title;
+    padding: $defaultIndent;
+    border-bottom: 1px solid $lightGrey;
+  }
+  .modal-body {
+    padding: 0 $defaultIndent;
+  }
+
+
+}
+
+// Checkbox wrap
+.checkbox-wrap{
+  padding: 30px 0;
+
+  .checkboxes{
+    padding-top: 30px;
+    height: 150px;
+    flex-wrap: wrap;
+
+    .checkbox-group{
+      padding: 12px;
+
+      &:hover{
+        background-color: $xsLightGrey;
+      }
+    }
+  }
+}
+
+#add-links-modal{
+  width: 1075px;
+
+  .checkbox-group{
+    width: 33.3333%;
+  }
 }

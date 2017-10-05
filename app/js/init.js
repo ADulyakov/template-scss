@@ -72,11 +72,17 @@ $( function() {
     }
 
     // modal init
-    var modalBtn =$('.links .btn');
+    var modalBtns =$('[data-modal]');
 
-    modalBtn.on('click', function(event) {
+    modalBtns.on('click', function(event) {
         event.preventDefault();
-        $('.modal').bPopup();
+
+        var target = $(this).attr('data-modal');
+        console.log(target);
+
+        $(target).bPopup({
+            closeClass: 'close-modal-btn'
+        });
     });
 
 } );
